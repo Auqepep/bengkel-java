@@ -18,7 +18,7 @@ public class Transaksi {
             throw new BengkelException("Stok barang tidak mencukupi: " + barang.getNama());
         }
         barang.kurangiStok(jumlah);
-        listBarang.add(barang);
+        listBarang.add(barang); // Untuk kesederhanaan, tidak menyimpan jumlah per barang
     }
 
     public void tambahLayanan(Layanan layanan) {
@@ -26,18 +26,35 @@ public class Transaksi {
     }
 
     public void cetakTransaksi() {
-        System.out.println("========== TRANSAKSI ==========");
-        System.out.println("ID: " + idTransaksi);
-        System.out.println("Motor: " + objMotor.getNomorPolisi() + " - " + objMotor.getMerk() + " (" + objMotor.getTipe() + ")");
-        
-        System.out.println("\n>> Layanan:");
-        for (Layanan l : listLayanan) {
-            System.out.println("• " + l.getInfo());
+        System.out.println(getRingkasan());
+    }
+
+    public String getRingkasan() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("========== TRANSAKSI ==========\n");
+        sb.append("ID: ").append(idTransaksi).append("\n");
+        sb.append("Motor: ").append(objMotor.getNomorPolisi())
+          .append(" - ").append(objMotor.getMerk())
+          .append(" (").append(objMotor.getTipe()).append(")\n");
+
+        sb.append("\n>> Layanan:\n");
+        if (listLayanan.isEmpty()) {
+            sb.append("Tidak ada layanan.\n");
+        } else {
+            for (Layanan l : listLayanan) {
+                sb.append("• ").append(l.getInfo()).append("\n");
+            }
         }
 
-        System.out.println("\n>> Barang:");
-        for (Barang b : listBarang) {
-            System.out.println("• " + b.getInfo());
+        sb.append("\n>> Barang:\n");
+        if (listBarang.isEmpty()) {
+            sb.append("Tidak ada barang.\n");
+        } else {
+            for (Barang b : listBarang) {
+                sb.append("• ").append(b.getInfo()).append("\n");
+            }
         }
+
+        return sb.toString();
     }
 }
