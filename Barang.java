@@ -12,7 +12,7 @@ public class Barang implements Entitas {
     }
 
     // Getters & Setters
-    public String getKode() { return kode; }
+    public String getKode() { return kode; }    
     public String getNama() { return nama; }
     public double getHarga() { return harga; }
     public int getStok() { return stok; }

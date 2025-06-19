@@ -6,5 +6,7 @@ public class Motor extends Kendaraan {
         this.tipe = tipe;
     }
 
-    public String getTipe() { return tipe; }
+    public String getTipe() { 
+        return tipe; 
+    }
 }
