@@ -22,4 +22,9 @@ public class Barang implements Entitas {
     public String getInfo() {
         return kode + " - " + nama + " (Harga: Rp" + harga + ")";
     }
+
+    @Override
+    public String toString() {
+    return nama + " (Stok: " + stok + ")";
+    }
 }
