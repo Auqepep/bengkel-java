@@ -25,6 +25,6 @@ public class Barang implements Entitas {
 
     @Override
     public String toString() {
-    return nama + " (Stok: " + stok + ")";
+    return nama + " - Rp" + harga + " (Stok: " + stok + ")";
     }
 }
