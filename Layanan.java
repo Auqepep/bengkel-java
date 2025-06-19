@@ -20,6 +20,6 @@ public class Layanan implements Entitas {
 
     @Override
     public String toString() {
-    return nama; 
+        return nama + " - Rp" + biaya; 
     }
 }
