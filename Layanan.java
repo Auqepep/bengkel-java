@@ -17,4 +17,9 @@ public class Layanan implements Entitas {
     public String getInfo() {
         return kode + " - " + nama + " (Biaya: Rp" + biaya + ")";
     }
+
+    @Override
+    public String toString() {
+    return nama; 
+    }
 }
